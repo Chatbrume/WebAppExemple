@@ -26,16 +26,18 @@
       pip: name=docker-py
 
   tasks:
-    - name: create webapp directory
+    - name: create WebAppExemple directory
       file:
-        path: /home/admin/webapp
+        path: /home/admin/WebAppExemple
         state: directory
     - name: git clone static-website-example
       repo: 'https://github.com/diranetafen/static-website-example.git'
-      dest: /home/admin/webapp
+      dest: /home/admin/WebAppExemple
     - name: launch docker container"
       docker_container:
-        name: webapp
+        name: WebAppExemple
         image: httpd
         ports:
-          - "8080:80"
+          - "80:8080"
+        volumes:
+          - /home/admin/WebAppExemple/:/usr/local/apach2/htdocs/
