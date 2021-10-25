@@ -22,6 +22,19 @@ cd
 ## build
 Sur l'instance eazytraining/ansible
 
+Modif de l'adresse ip
+```cmd
+vi prod.yml
+```
+Remplacer "10.0.7.4" par le numéro du eazytraining/client
+
+Rappel commande vi:
+Insert: taper sur la lettre i
+Sauvegarder et quittez le fichier:
+1) taper sur la touche echap
+2) ecriver :wq
+3) taper sur entrée
+
 Installation du module ansible-lint
 ```cmd
 sudo yum install ansible-lint
