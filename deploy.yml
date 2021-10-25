@@ -21,7 +21,6 @@
         dest: /tmp/get-pip.py
     - name: "install python-pip"
       command: python2.7 /tmp/get-pip.py
-
     - name: Install docker python
       pip: name=docker-py
 
@@ -30,14 +29,15 @@
       file:
         path: /home/admin/WebAppExemple
         state: directory
-    - name: git clone static-website-example
-      repo: 'https://github.com/diranetafen/static-website-example.git'
-      dest: /home/admin/WebAppExemple
+    - name: git clone webserver files
+      git:
+        repo: 'https://github.com/diranetafen/static-website-example.git'
+        dest: /home/admin/WebAppExemple
     - name: launch docker container"
       docker_container:
         name: WebAppExemple
         image: httpd
         ports:
-          - "80:8080"
+          - "80:80"
         volumes:
-          - /home/admin/WebAppExemple/:/usr/local/apach2/htdocs/
+          - /home/admin/WebAppExemple/:/usr/local/apache2/htdocs/
