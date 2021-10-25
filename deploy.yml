@@ -1,9 +1,6 @@
 ---
 - name: "Deploy an Container"
   hosts: all
-  become: true
-  vars:
-    ansible_sudo_pass: admin
   pre_tasks:
     - name: install dependencies
       yum:
