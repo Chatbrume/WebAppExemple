@@ -19,11 +19,20 @@
       get_url:
         url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
         dest: /tmp/get-pip.py
+    - name: "install python-pip"
+      command: python2.7 /tmp/get-pip.py
 
     - name: Install docker python
       pip: name=docker-py
 
   tasks:
+    - name: create webapp directory
+      file:
+        path: /home/admin/webapp
+        state: directory
+    - name: git clone static-website-example
+      repo: 'https://github.com/diranetafen/static-website-example.git'
+      dest: /home/admin/webapp
     - name: launch docker container"
       docker_container:
         name: webapp
