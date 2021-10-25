@@ -1,0 +1,34 @@
+---
+- name: "Deploy an Container"
+  hosts: all
+  become: true
+  vars:
+    ansible_sudo_pass: admin
+  pre_tasks:
+    - name: install dependencies
+      yum:
+        name: "epel-release"
+        state: "present"
+
+    - name: install dependencies
+      yum:
+        name: "git"
+        state: "present"
+
+    - name: "download Python-pip for docker module"
+      get_url:
+        url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
+        dest: /tmp/get-pip.py
+    - name: "install python-pip"
+      command: python2.7 /tmp/get-pip.py
+      
+    - name: Install docker python
+      pip: name=docker-py
+
+  tasks:
+    - name: launch docker container"
+      docker_container:
+        name: webapp
+        image: httpd
+        ports:
+          - "8080:80"
