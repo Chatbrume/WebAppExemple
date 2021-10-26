@@ -1,8 +1,8 @@
 all:
   vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=yes'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
 prod:
   hosts:
     client:
-      ansible_host: 10.0.7.4
+      ansible_host: 10.0.13.4
