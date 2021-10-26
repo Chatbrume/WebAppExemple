@@ -57,7 +57,7 @@ Task/Handler: git clone webserver files
 
 code:
 ```cmd
-ansible-playbook -i hosts deploy.yml
+ansible-playbook -i prod.yml deploy.yml
 ```
 resultat:
 ```cmd
