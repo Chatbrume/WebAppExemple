@@ -99,3 +99,6 @@ client                     : ok=9    changed=5    unreachable=0    failed=0    s
 Sur l'instance eazytraining/client
 
 Ouvrir le port 80
+
+## Encrypt password
+ansible-vault encrypt files/secrets/credential.vault
